@@ -8,9 +8,7 @@ export const getOneContact = catchAsync(
     const { contact } = req;
 
     setTimeout(() => {
-      res.status(200).json({
-        ...contact,
-      });
+      res.status(200).json(Array.isArray(contact) ? contact : [contact]);
     }, 5000);
   }
 );
